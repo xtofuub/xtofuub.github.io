@@ -66,31 +66,6 @@ export default function App() {
             I BUILD SECURE SYSTEMS, BREAK THEM TO MAKE THEM STRONGER, AND ENGINEER TOOLS FROM SCRATCH. PASSIONATE ABOUT RED TEAMING, REVERSE ENGINEERING, AND FULL-STACK DEVELOPMENT.
           </motion.p>
         </motion.div>
-
-        {/* JOIN THE CLUB Button -> VIEW GITHUB */}
-        <motion.div
-          className={`absolute bottom-8 right-8 z-50 pointer-events-none ${isMenuOpen ? 'hidden md:block' : ''}`}
-          initial="hidden"
-          animate={!isAnyOverlayOpen ? 'visible' : 'hidden'}
-          variants={textVariants}
-          style={{
-            transform: isMenuOpen ? 'translateX(calc(-1 * clamp(260px, 38vw, 420px)))' : 'translateX(0)',
-            transition: 'transform 1.0s cubic-bezier(0.76, 0, 0.24, 1)',
-          }}
-        >
-          <a
-            href="https://github.com/xtofuub"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`pointer-events-auto inline-block px-6 py-3 text-[13px] md:px-12 md:py-5 md:text-[18px] font-normal tracking-[0.15em] backdrop-blur-md uppercase transition-colors duration-300 ${
-              isMenuOpen
-                ? 'bg-[#c4b5fd] text-black hover:bg-white'
-                : 'bg-white text-black hover:bg-[#c4b5fd]'
-            }`}
-          >
-            VIEW GITHUB
-          </a>
-        </motion.div>
       </div>
 
       {/* Staggered Navigation Menu */}
