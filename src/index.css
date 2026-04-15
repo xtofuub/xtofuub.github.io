@@ -1,0 +1,14 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+@import '@fontsource-variable/geist';
+
+@theme {
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", ui-serif, serif;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-900 text-white overflow-hidden font-sans;
+  }
+}
