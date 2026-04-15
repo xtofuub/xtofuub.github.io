@@ -49,8 +49,14 @@ const projectsData = [
     ]
   },
   {
-    category: "Security & Malware Analysis",
+    category: "Security Research & Malware Analysis",
     items: [
+      {
+        name: "Sentinel-VOIP",
+        language: "JavaScript",
+        description: "Reverse-engineering of the Juasapp VoIP protocol using a jailbroken iOS device. Unlimited signaling flows extracted through dynamic runtime analysis.",
+        link: "https://github.com/xtofuub/Sentinel-VOIP"
+      },
       {
         name: "PysilonDecoder",
         language: "Python",
@@ -64,12 +70,6 @@ const projectsData = [
         link: "https://github.com/xtofuub/Hashtrace"
       },
       {
-        name: "fitsec-usbguard",
-        language: "TypeScript",
-        description: "USB security and monitoring tool.",
-        link: "https://github.com/xtofuub/fitsec-usbguard"
-      },
-      {
         name: "Cyber-Resources",
         language: "Markdown",
         description: "A curated collection of cybersecurity, OSINT, malware analysis, reconnaissance, and threat-intel resources.",
@@ -78,7 +78,42 @@ const projectsData = [
     ]
   },
   {
-    category: "Web & Extensions",
+    category: "Web Applications & Dashboards",
+    items: [
+      {
+        name: "RevOps-Dashboard",
+        language: "TypeScript",
+        description: "Weekly RevOps metric tracking with analytics, critical signal detection, and executive summaries. Built with Next.js 14, Shadcn, and Supabase.",
+        link: "https://github.com/xtofuub/RevOps-Dashboard"
+      },
+      {
+        name: "fitsec-focus-coach",
+        language: "TypeScript",
+        description: "Internal employee management platform built for FitSec to monitor work sessions, manage break times, and improve daily productivity.",
+        link: "https://github.com/xtofuub/fitsec-focus-coach"
+      },
+      {
+        name: "fitsec-usbguard",
+        language: "TypeScript",
+        description: "USBGuard UI/UX Revamp: A sleek, modern frontend project built with Framer and Liquid Glass effects. Focused on high-performance animations.",
+        link: "https://github.com/xtofuub/fitsec-usbguard"
+      },
+      {
+        name: "NyxRepost",
+        language: "HTML / API",
+        description: "Advanced TikTok repost analytics dashboard with charts, word clouds, creator stats, and profile comparison. Tiktok API scraper.",
+        link: "https://github.com/xtofuub/NyxRepost"
+      },
+      {
+        name: "SMBitan",
+        language: "JavaScript",
+        description: "A network file browser. Browse, search, and preview files on SMB/UNC shares with a dark-themed web UI.",
+        link: "https://github.com/xtofuub/SMBitan"
+      }
+    ]
+  },
+  {
+    category: "Browser Extensions & Utilities",
     items: [
       {
         name: "Solveify",
@@ -91,24 +126,6 @@ const projectsData = [
         language: "TypeScript",
         description: "Firefox ↔ Chrome extension converter. Easily port extensions between browsers.",
         link: "https://github.com/xtofuub/XSwitch"
-      },
-      {
-        name: "SMBitan",
-        language: "JavaScript",
-        description: "A network file browser. Browse, search, and preview files on SMB/UNC shares with a dark-themed web UI.",
-        link: "https://github.com/xtofuub/SMBitan"
-      },
-      {
-        name: "NyxRepost",
-        language: "HTML / API",
-        description: "Advanced TikTok repost analytics dashboard with charts, word clouds, creator stats, and profile comparison.",
-        link: "https://github.com/xtofuub/NyxRepost"
-      },
-      {
-        name: "Sentinel-VOIP",
-        language: "JavaScript",
-        description: "VOIP security and monitoring tool.",
-        link: "https://github.com/xtofuub/Sentinel-VOIP"
       }
     ]
   }
@@ -146,9 +163,10 @@ export default function ProjectsOverlay({ isOpen, onClose }: ProjectsOverlayProp
               {projectsData.map((category, catIdx) => (
                 <motion.div 
                   key={category.category}
-                  initial={{ y: 40, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.3 + (catIdx * 0.1), duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
+                  initial={{ y: 50, opacity: 0, filter: 'blur(10px)', scale: 0.98 }}
+                  whileInView={{ y: 0, opacity: 1, filter: 'blur(0px)', scale: 1 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 >
                   <h3 className="text-[#c4b5fd] font-sans tracking-widest uppercase text-sm mb-8 border-b border-white/10 pb-4 flex items-center gap-3">
                     <FolderGit2 size={18} />

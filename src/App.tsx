@@ -55,8 +55,8 @@ export default function App() {
           <div className="text-[64px] md:text-[140px] font-serif font-normal leading-none drop-shadow-2xl tracking-normal uppercase">
             <div className="overflow-hidden"><motion.div variants={textVariants}>Hello, I'm</motion.div></div>
             <div className="overflow-hidden"><motion.div variants={textVariants} className="italic">Edwin.</motion.div></div>
-            <div className="overflow-hidden"><motion.div variants={textVariants}>Security</motion.div></div>
-            <div className="overflow-hidden"><motion.div variants={textVariants} className="italic">Researcher.</motion.div></div>
+            <div className="overflow-hidden"><motion.div variants={textVariants}>Cybersecurity</motion.div></div>
+            <div className="overflow-hidden"><motion.div variants={textVariants} className="italic">Specialist.</motion.div></div>
           </div>
 
           <motion.p

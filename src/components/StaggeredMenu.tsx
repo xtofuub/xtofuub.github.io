@@ -22,8 +22,7 @@ const menuItems = [
 
 const socialItems = [
   { name: 'GitHub', url: 'https://github.com/xtofuub' },
-  { name: 'LinkedIn', url: '#' },
-  { name: 'Twitter', url: '#' }
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/edwin-chen-579708263/' }
 ];
 
 export default function StaggeredMenu({ isOpen, setIsOpen, onProjectsClick, onAboutClick, onExperienceClick }: StaggeredMenuProps) {

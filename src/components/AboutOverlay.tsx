@@ -60,9 +60,10 @@ export default function AboutOverlay({ isOpen, onClose }: AboutOverlayProps) {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 pb-24">
               {/* Bio Section */}
               <motion.div 
-                initial={{ y: 40, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
+                initial={{ y: 50, opacity: 0, filter: 'blur(10px)', scale: 0.98 }}
+                whileInView={{ y: 0, opacity: 1, filter: 'blur(0px)', scale: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 className="lg:col-span-2 space-y-8"
               >
                 <h3 className="text-[#c4b5fd] font-sans tracking-widest uppercase text-sm mb-6 border-b border-white/10 pb-4 flex items-center gap-3">
@@ -74,7 +75,7 @@ export default function AboutOverlay({ isOpen, onClose }: AboutOverlayProps) {
                     Hey, I'm Edwin - a Computer Engineering student who thrives on building things, breaking them apart, and understanding exactly how they work under the hood.
                   </p>
                   <p>
-                    While I'm currently navigating the challenges of academia, my true passion lies at the intersection of offensive security and software engineering. I specialize in security research, focusing heavily on penetration testing, red team concepts, and adversary simulation to uncover vulnerabilities before they can be exploited. When I'm not simulating attacks, I'm deep into reverse engineering - analyzing malware and decoding the unknown to unravel complex, compiled puzzles.
+                    While I'm currently navigating the challenges of academia, my true passion lies at the intersection of offensive security and software engineering. I specialize in cybersecurity, focusing heavily on penetration testing, red team concepts, and adversary simulation to uncover vulnerabilities before they can be exploited. When I'm not simulating attacks, I'm deep into reverse engineering - analyzing malware and decoding the unknown to unravel complex, compiled puzzles.
                   </p>
                   <p>
                     Beyond breaking things, I'm a builder at heart. I engineer full-stack web applications using PHP, JavaScript, and modern databases, architecting seamless digital experiences from the ground up. And if a specific tool doesn't exist to solve a problem I'm facing? I simply build it from scratch.
@@ -122,9 +123,10 @@ export default function AboutOverlay({ isOpen, onClose }: AboutOverlayProps) {
 
               {/* Skills Section */}
               <motion.div 
-                initial={{ y: 40, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.4, duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
+                initial={{ y: 50, opacity: 0, filter: 'blur(10px)', scale: 0.98 }}
+                whileInView={{ y: 0, opacity: 1, filter: 'blur(0px)', scale: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 className="space-y-8"
               >
                 <h3 className="text-[#c4b5fd] font-sans tracking-widest uppercase text-sm mb-6 border-b border-white/10 pb-4 flex items-center gap-3">

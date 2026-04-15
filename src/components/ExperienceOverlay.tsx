@@ -81,9 +81,10 @@ export default function ExperienceOverlay({ isOpen, onClose }: ExperienceOverlay
               {experienceData.map((job, index) => (
                 <motion.div 
                   key={job.id}
-                  initial={{ y: 40, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.3 + (index * 0.1), duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
+                  initial={{ y: 50, opacity: 0, filter: 'blur(10px)', scale: 0.98 }}
+                  whileInView={{ y: 0, opacity: 1, filter: 'blur(0px)', scale: 1 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                   className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active"
                 >
                   {/* Timeline dot */}

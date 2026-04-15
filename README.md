@@ -1,6 +1,6 @@
 # Edwin's Portfolio
 
-This repository contains the source code for my personal portfolio website. I am a Computer Engineering student specializing in security research, reverse engineering, and full-stack web development.
+This repository contains the source code for my personal portfolio website. I am a Computer Engineering student specializing in cybersecurity, reverse engineering, and full-stack web development.
 
 ## Overview
 

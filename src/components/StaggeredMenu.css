@@ -129,7 +129,7 @@
   box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.5);
   color: white;
   cursor: pointer;
-  transition: transform 1.0s cubic-bezier(0.76, 0, 0.24, 1), background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 1.0s cubic-bezier(0.76, 0, 0.24, 1), background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 }
 
 .menu-toggle-btn:hover {
@@ -140,22 +140,20 @@
 
 .menu-toggle-btn.is-open {
   transform: translateX(calc(-1 * clamp(260px, 38vw, 420px)));
-  background-color: rgba(0, 0, 0, 0.05);
-  color: black;
-  border-color: rgba(0, 0, 0, 0.15);
-  box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.1);
-}
-
-.menu-toggle-btn.is-open:hover {
-  background-color: rgba(0, 0, 0, 0.08);
-  border-color: rgba(0, 0, 0, 0.25);
-  box-shadow: 0 6px 32px -4px rgba(0, 0, 0, 0.15);
 }
 
 @media (max-width: 1024px) {
   .menu-toggle-btn.is-open {
     transform: translateX(0);
     right: 2rem;
+    background-color: rgba(0, 0, 0, 0.05);
+    color: black;
+    border-color: rgba(0, 0, 0, 0.15);
+  }
+  
+  .menu-toggle-btn.is-open:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.25);
   }
 }
 
