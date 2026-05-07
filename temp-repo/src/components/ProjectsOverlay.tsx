@@ -52,18 +52,6 @@ const projectsData = [
     category: "Security Research & Malware Analysis",
     items: [
       {
-        name: "Melani-AI",
-        language: "JavaScript",
-        description: "Landing page for Melani-AI, a browser-based AI reverse engineering platform concept for turning binaries and malware samples into clear, evidence-backed analysis.",
-        link: "https://github.com/xtofuub/Melani-AI"
-      },
-      {
-        name: "ios-jailbreak-ssh-mcp",
-        language: "TypeScript",
-        description: "A local MCP server that lets AI clients safely read and write files on jailbroken iOS devices over SSH/SFTP.",
-        link: "https://github.com/xtofuub/ios-jailbreak-ssh-mcp"
-      },
-      {
         name: "Sentinel-VOIP",
         language: "JavaScript",
         description: "Reverse-engineering of the Juasapp VoIP protocol using a jailbroken iOS device. Unlimited signaling flows extracted through dynamic runtime analysis.",
