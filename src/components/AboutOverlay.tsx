@@ -9,6 +9,10 @@ import {
   Globe,
   Award,
   Activity,
+  Bug,
+  Cloud,
+  Cpu,
+  Smartphone,
 } from 'lucide-react';
 
 interface AboutOverlayProps {
@@ -18,25 +22,52 @@ interface AboutOverlayProps {
 
 const skillGroups = [
   {
-    category: 'Reverse Engineering',
-    icon: <Activity size={18} />,
-    items: ['Mach-O', 'PE', 'ELF', 'x86/x64/ARM', 'Ghidra', 'Frida', 'Obj-C runtime', 'capa'],
+    category: 'Binary & Runtime RE',
+    icon: <Cpu size={18} />,
+    items: ['Mach-O', 'PE', 'ELF', 'x86/x64/ARM', 'Ghidra', 'IDA Free', 'Frida', 'Obj-C/Swift runtime', 'capa'],
   },
   {
-    category: 'Malware & CTI',
+    category: 'Malware & Detection',
     icon: <Shield size={18} />,
-    items: ['IOC engineering', 'YARA', 'Sigma', 'MITRE ATT&CK', 'TTP mapping', 'Sandbox triage'],
+    items: ['IOC engineering', 'YARA', 'Sigma', 'MITRE ATT&CK', 'TTP mapping', 'Opcode clustering', 'Payload reconstruction'],
   },
   {
-    category: 'Security Testing',
+    category: 'Sandboxing & Triage',
+    icon: <Bug size={18} />,
+    items: ['Triage', 'ANY.RUN', 'Hybrid Analysis', 'Joe Sandbox', 'Cuckoo', 'REMnux', 'VirusTotal Intelligence'],
+  },
+  {
+    category: 'Web/App Security',
     icon: <Wrench size={18} />,
-    items: ['Burp Suite', 'Nmap', 'ffuf', 'Nuclei', 'Wireshark', 'mitmproxy', 'OWASP Top 10'],
+    items: ['Burp Suite', 'PortSwigger', 'OWASP Top 10', 'IDOR', 'XSS', 'SQLi', 'SSRF', 'CSRF', 'Auth bypass'],
   },
   {
-    category: 'Programming',
-    icon: <Terminal size={18} />,
-    items: ['Python', 'TypeScript', 'Node.js', 'React', 'Next.js', 'PowerShell', 'MCP'],
+    category: 'Network & OSINT',
+    icon: <Globe size={18} />,
+    items: ['Wireshark/PCAP', 'Nmap', 'ffuf', 'Nuclei', 'WPScan', 'Shodan', 'Maltego', 'SPF/DKIM/DMARC'],
   },
+  {
+    category: 'Programming & AI',
+    icon: <Terminal size={18} />,
+    items: ['Python', 'TypeScript', 'Node.js', 'React', 'Next.js', 'PowerShell', 'MCP', 'LLM analyst workflows'],
+  },
+  {
+    category: 'Systems & Cloud',
+    icon: <Cloud size={18} />,
+    items: ['Kali Linux', 'Linux', 'Windows', 'Azure', 'Active Directory', 'Docker', 'DNS', 'HTTPS/SSH'],
+  },
+  {
+    category: 'Mobile / iOS Research',
+    icon: <Smartphone size={18} />,
+    items: ['Jailbroken iOS', 'Frida hooks', 'Method hooking', 'SSL pinning bypass', 'SSH/SFTP workflows', 'Runtime inspection'],
+  },
+];
+
+const technicalHighlights = [
+  ['Core lane', 'RE + malware + CTI'],
+  ['Platforms', 'iOS, Windows, Linux'],
+  ['Detection', 'YARA, Sigma, IOCs, TTPs'],
+  ['Builder side', 'Python, TypeScript, MCP'],
 ];
 
 const certifications = [
@@ -196,8 +227,22 @@ export default function AboutOverlay({ isOpen, onClose }: AboutOverlayProps) {
                 className="lg:col-span-2"
               >
                 <div className="mb-6 flex items-center justify-between border-b border-white/10 pb-5">
-                  <h3 className="text-3xl md:text-5xl font-serif uppercase">Technical Range</h3>
+                  <div>
+                    <h3 className="text-3xl md:text-5xl font-serif uppercase">Technical Range</h3>
+                    <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/60">
+                      A fuller map of the tools and techniques from the updated CV, grouped by how
+                      they show up in analyst work.
+                    </p>
+                  </div>
                   <Terminal size={22} className="text-[#c4b5fd]" />
+                </div>
+                <div className="mb-4 grid grid-cols-2 gap-3 lg:grid-cols-4">
+                  {technicalHighlights.map(([label, value]) => (
+                    <div key={label} className="rounded-lg border border-white/10 bg-white/[0.045] p-4">
+                      <div className="text-[10px] uppercase tracking-widest text-[#c4b5fd]/80">{label}</div>
+                      <div className="mt-2 text-sm text-white">{value}</div>
+                    </div>
+                  ))}
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
                   {skillGroups.map((skillGroup) => (
