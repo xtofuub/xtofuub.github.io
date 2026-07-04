@@ -1,39 +1,47 @@
-# Edwin's Portfolio
+# Edwin Chen Portfolio
 
-This repository contains the source code for my personal portfolio website. I am a Computer Engineering student specializing in cybersecurity, reverse engineering, and full-stack web development.
+Personal GitHub Pages site for Edwin Chen, focused on malware analysis, cyber threat intelligence, reverse engineering, and practical security tooling.
 
-## Overview
+Live site: [xtofuub.github.io](https://xtofuub.github.io/)
 
-The portfolio is designed to showcase my projects, experience, and technical skills across different domains, including:
-- **Offensive Security & Red Teaming:** Penetration testing, adversary simulation, and custom tooling.
-- **Reverse Engineering:** Malware analysis and decoding compiled executables.
-- **Web Development:** Full-stack engineering, database management, and deployment architectures.
+## What The Site Covers
+
+- Current profile as a cybersecurity student and junior malware analyst / CTI candidate.
+- Curated repository showcase, with stronger defensive and research projects shown first.
+- Work history updated from the latest CV, including Fitsec Ltd, public-service IT support, and Business College Helsinki IT support.
+- Skills across reverse engineering, malware analysis, CTI, iOS dynamic analysis, security testing, and full-stack tooling.
+- Public contact paths through GitHub, LinkedIn, and TryHackMe.
 
 ## Tech Stack
 
-This project is built using modern front-end technologies:
-- **Framework:** React 18 with Vite
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS
-- **Animations:** Framer Motion
-- **Icons:** Lucide React
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS 4
+- Motion
+- GSAP
+- Lucide React
 
 ## Local Development
 
-To run this project locally, follow these steps:
+```bash
+npm install
+npm run dev
+```
 
-1. Install the required dependencies:
-   ```bash
-   npm install
-   ```
+The dev server runs on `http://localhost:3000`.
 
-2. Start the local development server:
-   ```bash
-   npm run dev
-   ```
+## Quality Checks
 
-3. Open your browser and navigate to the local URL provided in your terminal (typically `http://localhost:3000`).
+```bash
+npm run lint
+npm run build
+```
 
-## Links
+## Deployment
 
-- **GitHub:** [github.com/xtofuub](https://github.com/xtofuub)
+The site deploys to GitHub Pages from `main` through `.github/workflows/deploy.yml`. The workflow installs dependencies, builds the Vite app, uploads `dist`, and publishes it with GitHub Pages.
+
+## Content Notes
+
+The portfolio intentionally highlights analysis, CTI, reverse engineering, and tooling work over older demo repos. Security research is framed around authorized testing, defensive analysis, and learning value.

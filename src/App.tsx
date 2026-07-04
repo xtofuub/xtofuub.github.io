@@ -52,18 +52,18 @@ export default function App() {
             hidden: { transition: { staggerChildren: 0.06, staggerDirection: -1 } },
           }}
         >
-          <div className="text-[64px] md:text-[140px] font-serif font-normal leading-none drop-shadow-2xl tracking-normal uppercase">
-            <div className="overflow-hidden"><motion.div variants={textVariants}>Hello, I'm</motion.div></div>
-            <div className="overflow-hidden"><motion.div variants={textVariants} className="italic">Edwin.</motion.div></div>
-            <div className="overflow-hidden"><motion.div variants={textVariants}>Cybersecurity</motion.div></div>
-            <div className="overflow-hidden"><motion.div variants={textVariants} className="italic">Specialist.</motion.div></div>
+          <div className="text-[54px] sm:text-[76px] md:text-[132px] lg:text-[148px] font-serif font-normal leading-[0.9] drop-shadow-2xl tracking-normal uppercase">
+            <div className="overflow-hidden"><motion.div variants={textVariants}>Edwin</motion.div></div>
+            <div className="overflow-hidden"><motion.div variants={textVariants} className="italic">Chen.</motion.div></div>
+            <div className="overflow-hidden"><motion.div variants={textVariants}>Malware</motion.div></div>
+            <div className="overflow-hidden"><motion.div variants={textVariants} className="italic">Analysis.</motion.div></div>
           </div>
 
           <motion.p
             variants={textVariants}
-            className="mt-8 ml-0 md:ml-[35%] translate-x-0 md:translate-x-[100px] text-[10px] md:text-xs font-normal w-[260px] text-left md:text-justify leading-relaxed drop-shadow-md tracking-widest uppercase"
+            className="mt-8 ml-0 md:ml-[35%] translate-x-0 md:translate-x-[100px] text-[10px] md:text-xs font-normal w-[280px] md:w-[360px] text-left md:text-justify leading-relaxed drop-shadow-md tracking-widest uppercase"
           >
-            I BUILD SECURE SYSTEMS, BREAK THEM TO MAKE THEM STRONGER, AND ENGINEER TOOLS FROM SCRATCH. PASSIONATE ABOUT RED TEAMING, REVERSE ENGINEERING, AND FULL-STACK DEVELOPMENT.
+            Junior malware analyst and cybersecurity student focused on CTI, reverse engineering, iOS dynamic analysis, and practical security tooling. Open to SOC, DFIR, CTI, and RE roles.
           </motion.p>
         </motion.div>
       </div>

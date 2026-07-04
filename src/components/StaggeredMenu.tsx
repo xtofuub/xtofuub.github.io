@@ -17,12 +17,13 @@ const menuItems = [
   { label: 'About', action: 'about' },
   { label: 'Experience', action: 'experience' },
   { label: 'GitHub', action: 'github' },
-  { label: 'Contact', action: 'close' },
+  { label: 'Contact', action: 'contact' },
 ];
 
 const socialItems = [
   { name: 'GitHub', url: 'https://github.com/xtofuub' },
-  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/edwin-chen-579708263/' }
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/edwin-chen-579708263/' },
+  { name: 'TryHackMe', url: 'https://tryhackme.com/p/tofuub' }
 ];
 
 export default function StaggeredMenu({ isOpen, setIsOpen, onProjectsClick, onAboutClick, onExperienceClick }: StaggeredMenuProps) {
@@ -104,6 +105,9 @@ export default function StaggeredMenu({ isOpen, setIsOpen, onProjectsClick, onAb
       setIsOpen(false);
     } else if (action === 'github') {
       window.open('https://github.com/xtofuub', '_blank');
+      setIsOpen(false);
+    } else if (action === 'contact') {
+      window.open('https://www.linkedin.com/in/edwin-chen-579708263/', '_blank');
       setIsOpen(false);
     } else {
       setIsOpen(false);

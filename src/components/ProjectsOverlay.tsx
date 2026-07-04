@@ -1,146 +1,127 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Github, ExternalLink, FolderGit2 } from 'lucide-react';
+import {
+  X,
+  Github,
+  ExternalLink,
+  FolderGit2,
+  ShieldCheck,
+  Smartphone,
+  BarChart3,
+  Wrench,
+} from 'lucide-react';
 
 interface ProjectsOverlayProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const projectsData = [
+const featuredProjects = [
   {
-    category: "Offensive Security & Red Teaming",
-    items: [
-      {
-        name: "Mailsploit",
-        language: "Python",
-        description: "Security-focused platform for email that demonstrates advanced spoofing techniques while analyzing domain authentication protocols like SPF and DMARC.",
-        link: "https://github.com/xtofuub/mailsploit"
-      },
-      {
-        name: "SpoofMail",
-        language: "PHP / CSS",
-        description: "A modern, responsive email spoofer built with simple PHP, HTML, CSS, and JavaScript. Includes file attachment support and email previews.",
-        link: "https://github.com/xtofuub/SpoofMail"
-      },
-      {
-        name: "PacketStorm",
-        language: "Python",
-        description: "Semi-Automated Python Deauther For Kali Linux. Deauthenticates clients from wireless networks.",
-        link: "https://github.com/xtofuub/PacketStorm"
-      },
-      {
-        name: "PS-CredentialPhisher",
-        language: "PowerShell",
-        description: "PowerShell utility for testing Windows Credential UI (CredUI) behavior and UAC prompt simulations. Captured credentials sent to Discord.",
-        link: "https://github.com/xtofuub/PS-CredentialPhisher"
-      },
-      {
-        name: "RavenC2",
-        language: "PowerShell",
-        description: "A PowerShell-based remote control tool for managing a Windows machine via Telegram, intended for learning and automation experiments.",
-        link: "https://github.com/xtofuub/RavenC2"
-      },
-      {
-        name: "wilma-phish",
-        language: "HTML",
-        description: "Wilma phishing clone with Discord webhook logging for authorized security testing.",
-        link: "https://github.com/xtofuub/wilma-phish"
-      }
-    ]
+    name: 'NyxRepost',
+    theme: 'TikTok repost insight workspace',
+    language: 'JavaScript',
+    link: 'https://github.com/xtofuub/NyxRepost',
+    icon: <BarChart3 size={20} />,
+    description:
+      'Advanced repost analytics dashboard with a replayable history feed, thumbnails, creator stats, monthly and yearly trends, word-cloud signals, profile comparison, and deploy-ready Vercel support.',
+    evidence: ['Repost history first', 'Playable previews', 'Charts and comparison'],
   },
   {
-    category: "Security Research & Malware Analysis",
-    items: [
-      {
-        name: "Melani-AI",
-        language: "JavaScript",
-        description: "Landing page for Melani-AI, a browser-based AI reverse engineering platform concept for turning binaries and malware samples into clear, evidence-backed analysis.",
-        link: "https://github.com/xtofuub/Melani-AI"
-      },
-      {
-        name: "ios-jailbreak-ssh-mcp",
-        language: "TypeScript",
-        description: "A local MCP server that lets AI clients safely read and write files on jailbroken iOS devices over SSH/SFTP.",
-        link: "https://github.com/xtofuub/ios-jailbreak-ssh-mcp"
-      },
-      {
-        name: "Sentinel-VOIP",
-        language: "JavaScript",
-        description: "Reverse-engineering of the Juasapp VoIP protocol using a jailbroken iOS device. Unlimited signaling flows extracted through dynamic runtime analysis.",
-        link: "https://github.com/xtofuub/Sentinel-VOIP"
-      },
-      {
-        name: "PysilonDecoder",
-        language: "Python",
-        description: "Python-based tool designed to analyze and decode Pysilon malware tokens. Automates token extraction and reconstructs payloads.",
-        link: "https://github.com/xtofuub/PysilonDecoder"
-      },
-      {
-        name: "Hashtrace",
-        language: "JavaScript",
-        description: "Lightweight Chromium extension for cybersecurity researchers. Highlights cryptographic hashes on web pages and fetches VirusTotal reputation.",
-        link: "https://github.com/xtofuub/Hashtrace"
-      },
-      {
-        name: "Cyber-Resources",
-        language: "Markdown",
-        description: "A curated collection of cybersecurity, OSINT, malware analysis, reconnaissance, and threat-intel resources.",
-        link: "https://github.com/xtofuub/Cyber-Resources"
-      }
-    ]
+    name: 'Repostify',
+    theme: 'Read-only repost viewer',
+    language: 'TypeScript',
+    link: 'https://github.com/xtofuub/Repostify',
+    icon: <BarChart3 size={20} />,
+    description:
+      'A focused TikTok repost viewer: paste a handle, inspect the amplified videos, and move through a clean playable grid without losing context.',
+    evidence: ['2-up video grid', 'Creator lookup', 'Fast inspection flow'],
   },
   {
-    category: "Web Applications & Dashboards",
-    items: [
-      {
-        name: "RevOps-Dashboard",
-        language: "TypeScript",
-        description: "Weekly RevOps metric tracking with analytics, critical signal detection, and executive summaries. Built with Next.js 14, Shadcn, and Supabase.",
-        link: "https://github.com/xtofuub/RevOps-Dashboard"
-      },
-      {
-        name: "fitsec-focus-coach",
-        language: "TypeScript",
-        description: "Internal employee management platform built for FitSec to monitor work sessions, manage break times, and improve daily productivity.",
-        link: "https://github.com/xtofuub/fitsec-focus-coach"
-      },
-      {
-        name: "fitsec-usbguard",
-        language: "TypeScript",
-        description: "USBGuard UI/UX Revamp: A sleek, modern frontend project built with Framer and Liquid Glass effects. Focused on high-performance animations.",
-        link: "https://github.com/xtofuub/fitsec-usbguard"
-      },
-      {
-        name: "NyxRepost",
-        language: "HTML / API",
-        description: "Advanced TikTok repost analytics dashboard with charts, word clouds, creator stats, and profile comparison. Tiktok API scraper.",
-        link: "https://github.com/xtofuub/NyxRepost"
-      },
-      {
-        name: "SMBitan",
-        language: "JavaScript",
-        description: "A network file browser. Browse, search, and preview files on SMB/UNC shares with a dark-themed web UI.",
-        link: "https://github.com/xtofuub/SMBitan"
-      }
-    ]
+    name: 'iOS Research Tooling',
+    theme: 'Frida, SSH, and dynamic analysis',
+    language: 'Python / TypeScript',
+    link: 'https://github.com/xtofuub/frida-mcp-server',
+    icon: <Smartphone size={20} />,
+    description:
+      'Public iOS research utilities for jailbroken-device workflows, Frida control, runtime inspection, and safe local file access through MCP-style tooling.',
+    evidence: ['Frida hooks', 'Jailbroken iOS', 'MCP automation'],
   },
   {
-    category: "Browser Extensions & Utilities",
-    items: [
-      {
-        name: "Solveify",
-        language: "JavaScript",
-        description: "Browser extension that simplifies question answering using the Gemini API. Highlights questions and retrieves accurate answers.",
-        link: "https://github.com/xtofuub/Solveify"
-      },
-      {
-        name: "XSwitch",
-        language: "TypeScript",
-        description: "Firefox ↔ Chrome extension converter. Easily port extensions between browsers.",
-        link: "https://github.com/xtofuub/XSwitch"
-      }
-    ]
-  }
+    name: 'PysilonDecoder',
+    theme: 'Malware token analysis',
+    language: 'Python',
+    link: 'https://github.com/xtofuub/PysilonDecoder',
+    icon: <ShieldCheck size={20} />,
+    description:
+      'Malware-analysis utility for extracting encoded tokens, identifying transform patterns, and rebuilding payload context for defensive research.',
+    evidence: ['Token extraction', 'Payload reconstruction', 'Research workflow'],
+  },
+  {
+    name: 'Hashtrace',
+    theme: 'Hash reputation extension',
+    language: 'JavaScript',
+    link: 'https://github.com/xtofuub/Hashtrace',
+    icon: <ShieldCheck size={20} />,
+    description:
+      'Chromium extension that detects hashes on web pages and pulls VirusTotal reputation so analysts can triage suspicious indicators faster.',
+    evidence: ['IOC triage', 'VirusTotal lookup', 'Browser workflow'],
+  },
+  {
+    name: 'Fitsec Internal Tools',
+    theme: 'Dashboards and operational software',
+    language: 'TypeScript',
+    link: 'https://github.com/xtofuub/RevOps-Dashboard',
+    icon: <Wrench size={20} />,
+    description:
+      'Operational dashboards and employee tools built during Fitsec work: weekly metric tracking, signal detection, work-session monitoring, and executive summaries.',
+    evidence: ['RevOps signals', 'Focus tracking', 'Production UI'],
+  },
+];
+
+const supportingProjects = [
+  {
+    name: 'SMBitan',
+    language: 'JavaScript',
+    link: 'https://github.com/xtofuub/SMBitan',
+    description: 'Dark web UI for browsing, searching, and previewing files on SMB/UNC shares.',
+  },
+  {
+    name: 'Sentinel-VOIP',
+    language: 'JavaScript',
+    link: 'https://github.com/xtofuub/Sentinel-VOIP',
+    description: 'Protocol reverse-engineering notes and rebuilt signaling flows from iOS dynamic analysis.',
+  },
+  {
+    name: 'Melani-AI',
+    language: 'JavaScript',
+    link: 'https://github.com/xtofuub/Melani-AI',
+    description: 'Reverse-engineering platform concept for turning binaries into evidence-backed analysis.',
+  },
+  {
+    name: 'suomi-shopping-mcp',
+    language: 'Python',
+    link: 'https://github.com/xtofuub/suomi-shopping-mcp',
+    description: 'MCP server for Finnish retail and used-market price search.',
+  },
+  {
+    name: 'XSwitch',
+    language: 'TypeScript',
+    link: 'https://github.com/xtofuub/XSwitch',
+    description: 'Firefox to Chrome extension converter with the most public stars in the current profile.',
+  },
+  {
+    name: 'HackerOne-MCP',
+    language: 'TypeScript',
+    link: 'https://github.com/xtofuub/HackerOne-MCP',
+    description: 'Security workflow experiment connecting AI clients to bug bounty context.',
+  },
+];
+
+const proofPoints = [
+  ['Current focus', 'Malware analysis, CTI, reverse engineering'],
+  ['Public repos reviewed', '30+ visible projects'],
+  ['Training signal', 'TryHackMe top 5% / 114 rooms'],
+  ['Recent stack', 'Python, TypeScript, React, Frida, MCP'],
 ];
 
 export default function ProjectsOverlay({ isOpen, onClose }: ProjectsOverlayProps) {
@@ -152,65 +133,150 @@ export default function ProjectsOverlay({ isOpen, onClose }: ProjectsOverlayProp
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-[110] bg-[#13111C]/40 backdrop-blur-sm overflow-y-auto"
+          className="fixed inset-0 z-[110] bg-[#13111C]/90 backdrop-blur-sm overflow-y-auto"
         >
           <button
             onClick={onClose}
-            className="fixed top-6 right-6 md:top-8 md:right-8 z-[120] flex items-center gap-3 px-5 py-2.5 md:px-6 md:py-3 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.5)] text-white hover:bg-white/20 hover:border-white/30 hover:shadow-[0_6px_32px_-4px_rgba(0,0,0,0.6)] transition-all duration-300 text-xs md:text-sm tracking-widest uppercase group"
+            className="fixed top-6 right-6 md:top-8 md:right-8 z-[120] flex items-center gap-3 px-5 py-2.5 md:px-6 md:py-3 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_4px_12px_-4px_rgba(0,0,0,0.55)] text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 text-xs md:text-sm tracking-widest uppercase group"
           >
             Close <X size={18} className="group-hover:rotate-90 transition-transform duration-300" />
           </button>
-          
-          <div className="min-h-screen p-8 md:p-24 max-w-7xl mx-auto">
-            <motion.h2 
+
+          <div className="min-h-screen px-5 pt-28 pb-8 md:p-24 max-w-7xl mx-auto">
+            <motion.div
               initial={{ y: 40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
-              className="text-5xl md:text-8xl font-serif uppercase mb-16"
+              transition={{ delay: 0.15, duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
+              className="mb-12 md:mb-16"
             >
-              Projects
-            </motion.h2>
-            
-            <div className="space-y-20 pb-24">
-              {projectsData.map((category, catIdx) => (
-                <motion.div 
-                  key={category.category}
-                  initial={{ y: 50, opacity: 0, filter: 'blur(10px)', scale: 0.98 }}
-                  whileInView={{ y: 0, opacity: 1, filter: 'blur(0px)', scale: 1 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  <h3 className="text-[#c4b5fd] font-sans tracking-widest uppercase text-sm mb-8 border-b border-white/10 pb-4 flex items-center gap-3">
-                    <FolderGit2 size={18} />
-                    {category.category}
-                  </h3>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {category.items.map((project) => (
-                      <a 
-                        key={project.name}
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group block p-6 bg-white/5 border border-white/10 hover:border-[#c4b5fd]/50 hover:bg-white/10 transition-all duration-300 rounded-lg flex flex-col h-full"
-                      >
-                        <div className="flex justify-between items-start mb-4">
-                          <h4 className="text-xl font-serif uppercase tracking-wide group-hover:text-[#c4b5fd] transition-colors">{project.name}</h4>
-                          <Github size={20} className="text-white/50 group-hover:text-white transition-colors" />
-                        </div>
-                        <p className="text-sm font-sans text-white/70 mb-6 flex-grow leading-relaxed">
-                          {project.description}
-                        </p>
-                        <div className="mt-auto flex items-center justify-between pt-4 border-t border-white/10">
-                          <span className="text-xs font-mono text-[#c4b5fd]/80">{project.language}</span>
-                          <ExternalLink size={14} className="text-white/30 group-hover:text-[#c4b5fd] transition-colors" />
-                        </div>
-                      </a>
-                    ))}
+              <div className="flex items-center gap-3 text-[#c4b5fd] text-xs tracking-widest uppercase mb-5">
+                <FolderGit2 size={17} />
+                Curated repository showcase
+              </div>
+              <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:items-end">
+                <h2 className="text-5xl md:text-8xl font-serif uppercase leading-[0.92]">
+                  Public Work
+                </h2>
+                <p className="text-white/70 text-sm md:text-base leading-relaxed max-w-2xl">
+                  Selected projects from the current GitHub profile, framed around analysis,
+                  defensive research, iOS reverse engineering, and practical tools. Older demos stay
+                  out of the spotlight so the strongest evidence is easier to read.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ y: 28, opacity: 0, filter: 'blur(8px)' }}
+              animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+              transition={{ delay: 0.28, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="grid grid-cols-2 lg:grid-cols-4 border border-white/10 rounded-lg overflow-hidden mb-12"
+            >
+              {proofPoints.map(([label, value]) => (
+                <div key={label} className="p-4 md:p-5 bg-white/[0.045] border-b lg:border-b-0 lg:border-r last:border-r-0 border-white/10">
+                  <div className="text-[10px] md:text-xs tracking-widest uppercase text-[#c4b5fd]/85 mb-2">
+                    {label}
                   </div>
-                </motion.div>
+                  <div className="text-sm md:text-base text-white leading-snug">{value}</div>
+                </div>
+              ))}
+            </motion.div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6 pb-14">
+              {featuredProjects.map((project, index) => (
+                <motion.a
+                  key={project.name}
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ y: 34, opacity: 0, filter: 'blur(10px)' }}
+                  whileInView={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+                  viewport={{ once: true, margin: '-80px' }}
+                  transition={{ delay: index * 0.035, duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+                  className="group flex min-h-[260px] flex-col justify-between rounded-lg border border-white/10 bg-white/[0.055] p-5 md:p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#c4b5fd]/50 hover:bg-white/[0.085]"
+                >
+                  <div>
+                    <div className="flex items-start justify-between gap-4 mb-7">
+                      <div className="flex items-center gap-3 text-[#c4b5fd]">
+                        <span className="grid h-10 w-10 place-items-center rounded-full bg-[#c4b5fd]/10 border border-[#c4b5fd]/20">
+                          {project.icon}
+                        </span>
+                        <span className="text-[11px] tracking-widest uppercase text-white/60">
+                          {project.language}
+                        </span>
+                      </div>
+                      <Github size={20} className="text-white/40 group-hover:text-white transition-colors" />
+                    </div>
+                    <p className="text-[#c4b5fd]/90 text-xs md:text-sm tracking-widest uppercase mb-3">
+                      {project.theme}
+                    </p>
+                    <h3 className="text-3xl md:text-4xl font-serif uppercase leading-none mb-5 group-hover:text-[#d9cffd] transition-colors">
+                      {project.name}
+                    </h3>
+                    <p className="text-sm md:text-base text-white/70 leading-relaxed max-w-[62ch]">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  <div className="mt-7 flex flex-wrap items-center gap-2 border-t border-white/10 pt-5">
+                    {project.evidence.map((item) => (
+                      <span key={item} className="rounded-full bg-white/[0.08] px-3 py-1.5 text-xs text-white/70">
+                        {item}
+                      </span>
+                    ))}
+                    <ExternalLink size={15} className="ml-auto text-white/40 group-hover:text-[#c4b5fd] transition-colors" />
+                  </div>
+                </motion.a>
               ))}
             </div>
+
+            <motion.section
+              initial={{ y: 30, opacity: 0, filter: 'blur(8px)' }}
+              whileInView={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+              className="pb-24"
+            >
+              <div className="mb-6 flex flex-col gap-3 border-b border-white/10 pb-5 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <h3 className="text-3xl md:text-5xl font-serif uppercase">More Useful Builds</h3>
+                  <p className="mt-3 max-w-2xl text-sm text-white/60 leading-relaxed">
+                    Smaller repos and experiments that support the same story: analysis workflows,
+                    security automation, internal tooling, and browser utilities.
+                  </p>
+                </div>
+                <a
+                  href="https://github.com/xtofuub?tab=repositories"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-fit items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-xs uppercase tracking-widest text-white/70 transition-colors hover:border-[#c4b5fd]/50 hover:text-white"
+                >
+                  All repos <ExternalLink size={14} />
+                </a>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
+                {supportingProjects.map((project) => (
+                  <a
+                    key={project.name}
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group rounded-lg border border-white/10 bg-black/20 p-4 transition-colors hover:border-[#c4b5fd]/50 hover:bg-white/[0.06]"
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <h4 className="text-lg font-serif uppercase tracking-wide text-white group-hover:text-[#d9cffd] transition-colors">
+                          {project.name}
+                        </h4>
+                        <p className="mt-1 text-xs font-mono text-[#c4b5fd]/80">{project.language}</p>
+                      </div>
+                      <ExternalLink size={15} className="mt-1 text-white/30 group-hover:text-[#c4b5fd]" />
+                    </div>
+                    <p className="mt-4 text-sm text-white/60 leading-relaxed">{project.description}</p>
+                  </a>
+                ))}
+              </div>
+            </motion.section>
           </div>
         </motion.div>
       )}

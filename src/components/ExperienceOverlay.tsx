@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Briefcase, Calendar, MapPin } from 'lucide-react';
+import { X, Briefcase, Calendar, MapPin, CheckCircle2 } from 'lucide-react';
 
 interface ExperienceOverlayProps {
   isOpen: boolean;
@@ -9,44 +9,59 @@ interface ExperienceOverlayProps {
 const experienceData = [
   {
     id: 1,
-    role: "Malware Analysis & Cyber Threat Intelligence",
-    company: "Fitsec Ltd",
-    period: "01/2026 – 05/2026",
-    location: "Helsinki, Finland",
-    description: "Analyzed malware and cyber threats, produced threat intelligence reports, and supported organizational defense. Participated in incident response and developed recommendations to improve system security."
+    role: 'Malware Analyst & CTI Trainee',
+    company: 'Fitsec Ltd',
+    period: 'Jan 2026 - May 2026',
+    location: 'Finland',
+    summary:
+      'Reverse engineering, malware analysis, CTI reporting, and analyst tooling across iOS and Windows research.',
+    details: [
+      'Analyzed Mach-O ARM and PE samples with Ghidra, Frida, Python, and sandbox evidence.',
+      'Extracted IOCs, TTPs, YARA logic, and analyst notes for defensive reporting.',
+      'Built internal full-stack tools for metrics, focus tracking, and operational visibility.',
+    ],
   },
   {
     id: 2,
-    role: "Digital Caretaker / IT Support",
-    company: "Kirjasto IT",
-    period: "10/2024 – 12/2024",
-    location: "Helsinki, Finland",
-    description: "Managed versatile IT tasks across three library branches. Guided customers in using technology, maintained hardware and software, and resolved technical issues."
+    role: 'IT Support Specialist Intern',
+    company: 'Helsinki Public Libraries',
+    period: 'Oct 2024 - Dec 2024',
+    location: 'Finland',
+    summary:
+      'Hands-on support across three library branches, helping users and staff solve everyday device and software issues.',
+    details: [
+      'Troubleshot public workstations, peripherals, accounts, and common software problems.',
+      'Guided customers through digital services with clear, patient technical communication.',
+      'Maintained reliable branch IT operations across changing daily requests.',
+    ],
   },
   {
     id: 3,
-    role: "IT Support Specialist",
-    company: "Business College",
-    period: "12/2023 – 08/2024",
-    location: "Helsinki, Finland",
-    description: "Assisted students and teachers with technical problems, software installations, device deployments, and troubleshooting."
+    role: 'IT Support',
+    company: 'Business College Helsinki',
+    period: 'Dec 2023 - Aug 2024',
+    location: 'Finland',
+    summary:
+      'School IT support for students and teachers, covering deployments, installations, and troubleshooting.',
+    details: [
+      'Assisted with device setup, software installs, classroom issues, and account support.',
+      'Practiced clear ticket-style communication and practical root-cause troubleshooting.',
+      'Supported day-to-day ICT operations while studying cybersecurity.',
+    ],
   },
   {
     id: 4,
-    role: "Assistant",
-    company: "Leikkipuisto Munkki",
-    period: "07/2024 – 08/2024",
-    location: "Helsinki, Finland",
-    description: "Early childhood education assistant, supporting daily activities and group operations."
+    role: 'Early Childhood Assistant',
+    company: 'Leikkipuisto Munkki',
+    period: 'Jul 2024 - Aug 2024',
+    location: 'Finland',
+    summary:
+      'Short summer role supporting daily activities, communication, and group operations.',
+    details: [
+      'Helped staff run safe daily routines and activities.',
+      'Built communication confidence in a fast-moving public-service environment.',
+    ],
   },
-  {
-    id: 5,
-    role: "Store Assistant",
-    company: "K-Market Myyrmäki",
-    period: "08/2021",
-    location: "Vantaa, Finland",
-    description: "Customer service and store maintenance during TET internship."
-  }
 ];
 
 export default function ExperienceOverlay({ isOpen, onClose }: ExperienceOverlayProps) {
@@ -58,66 +73,117 @@ export default function ExperienceOverlay({ isOpen, onClose }: ExperienceOverlay
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-[110] bg-[#13111C]/40 backdrop-blur-sm overflow-y-auto"
+          className="fixed inset-0 z-[110] bg-[#13111C]/90 backdrop-blur-sm overflow-y-auto"
         >
           <button
             onClick={onClose}
-            className="fixed top-6 right-6 md:top-8 md:right-8 z-[120] flex items-center gap-3 px-5 py-2.5 md:px-6 md:py-3 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.5)] text-white hover:bg-white/20 hover:border-white/30 hover:shadow-[0_6px_32px_-4px_rgba(0,0,0,0.6)] transition-all duration-300 text-xs md:text-sm tracking-widest uppercase group"
+            className="fixed top-6 right-6 md:top-8 md:right-8 z-[120] flex items-center gap-3 px-5 py-2.5 md:px-6 md:py-3 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_4px_12px_-4px_rgba(0,0,0,0.55)] text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 text-xs md:text-sm tracking-widest uppercase group"
           >
             Close <X size={18} className="group-hover:rotate-90 transition-transform duration-300" />
           </button>
-          
-          <div className="min-h-screen p-8 md:p-24 max-w-7xl mx-auto">
-            <motion.h2 
+
+          <div className="min-h-screen px-5 pt-28 pb-8 md:p-24 max-w-7xl mx-auto">
+            <motion.div
               initial={{ y: 40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
-              className="text-5xl md:text-8xl font-serif uppercase mb-16"
+              transition={{ delay: 0.15, duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
+              className="mb-12 md:mb-16"
             >
-              Experience
-            </motion.h2>
-            
-            <div className="space-y-8 pb-24 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/20 before:to-transparent">
-              {experienceData.map((job, index) => (
-                <motion.div 
-                  key={job.id}
-                  initial={{ y: 50, opacity: 0, filter: 'blur(10px)', scale: 0.98 }}
-                  whileInView={{ y: 0, opacity: 1, filter: 'blur(0px)', scale: 1 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                  className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active"
-                >
-                  {/* Timeline dot */}
-                  <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 bg-[#13111C] text-[#c4b5fd] shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-[0_0_15px_rgba(196,181,253,0.2)] z-10">
-                    <Briefcase size={16} />
+              <div className="flex items-center gap-3 text-[#c4b5fd] text-xs tracking-widest uppercase mb-5">
+                <Briefcase size={17} />
+                Work history
+              </div>
+              <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-8 lg:items-end">
+                <h2 className="text-5xl md:text-8xl font-serif uppercase leading-[0.92]">
+                  Experience
+                </h2>
+                <p className="text-white/70 text-sm md:text-base leading-relaxed max-w-2xl">
+                  Recent work is weighted toward malware analysis, CTI, iOS research, and practical
+                  security tooling, with earlier IT support roles grounding the user-facing side.
+                </p>
+              </div>
+            </motion.div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-8 pb-24">
+              <motion.aside
+                initial={{ y: 30, opacity: 0, filter: 'blur(8px)' }}
+                animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+                transition={{ delay: 0.25, duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+                className="h-fit rounded-lg border border-white/10 bg-white/[0.045] p-5 lg:sticky lg:top-24"
+              >
+                <div className="text-[10px] uppercase tracking-widest text-[#c4b5fd]/80 mb-3">
+                  Current direction
+                </div>
+                <p className="text-2xl font-serif uppercase leading-none">
+                  SOC, DFIR, CTI, and reverse engineering roles.
+                </p>
+                <div className="mt-6 space-y-3 text-sm text-white/70">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={15} className="text-[#c4b5fd]" />
+                    Malware and binary analysis
                   </div>
-                  
-                  {/* Card */}
-                  <div className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] bg-white/5 border border-white/10 hover:border-[#c4b5fd]/50 hover:bg-white/10 transition-all duration-300 rounded-lg p-6 md:p-8">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-2">
-                      <h3 className="text-2xl font-serif uppercase tracking-wide text-white group-hover:text-[#c4b5fd] transition-colors">
-                        {job.role}
-                      </h3>
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#c4b5fd]/10 text-[#c4b5fd] text-xs font-mono whitespace-nowrap">
-                        <Calendar size={12} />
-                        {job.period}
-                      </span>
-                    </div>
-                    
-                    <div className="flex items-center gap-4 mb-6 text-sm font-sans text-white/60">
-                      <span className="font-medium text-white/80">{job.company}</span>
-                      <span className="flex items-center gap-1">
-                        <MapPin size={14} />
-                        {job.location}
-                      </span>
-                    </div>
-                    
-                    <p className="text-white/70 font-sans text-sm leading-relaxed">
-                      {job.description}
-                    </p>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={15} className="text-[#c4b5fd]" />
+                    Analyst tooling and dashboards
                   </div>
-                </motion.div>
-              ))}
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={15} className="text-[#c4b5fd]" />
+                    Public-service IT support
+                  </div>
+                </div>
+              </motion.aside>
+
+              <div className="relative space-y-5 before:absolute before:left-5 before:top-2 before:h-[calc(100%-1rem)] before:w-px before:bg-white/10">
+                {experienceData.map((job, index) => (
+                  <motion.article
+                    key={job.id}
+                    initial={{ y: 34, opacity: 0, filter: 'blur(10px)' }}
+                    whileInView={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+                    viewport={{ once: true, margin: '-80px' }}
+                    transition={{ delay: index * 0.04, duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+                    className="relative pl-14"
+                  >
+                    <div className="absolute left-0 top-4 grid h-10 w-10 place-items-center rounded-full border border-[#c4b5fd]/30 bg-[#13111C] text-[#c4b5fd]">
+                      <Briefcase size={16} />
+                    </div>
+
+                    <div className="rounded-lg border border-white/10 bg-white/[0.055] p-5 md:p-7 transition-colors hover:border-[#c4b5fd]/50 hover:bg-white/[0.08]">
+                      <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                        <div>
+                          <div className="mb-3 flex flex-wrap items-center gap-3 text-xs text-white/60">
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#c4b5fd]/10 px-3 py-1 text-[#c4b5fd]">
+                              <Calendar size={12} />
+                              {job.period}
+                            </span>
+                            <span className="inline-flex items-center gap-1.5">
+                              <MapPin size={13} />
+                              {job.location}
+                            </span>
+                          </div>
+                          <h3 className="text-2xl md:text-4xl font-serif uppercase leading-none text-white">
+                            {job.role}
+                          </h3>
+                          <p className="mt-3 text-[#c4b5fd]/85 text-sm tracking-widest uppercase">
+                            {job.company}
+                          </p>
+                        </div>
+                      </div>
+
+                      <p className="mt-6 max-w-3xl text-sm md:text-base text-white/70 leading-relaxed">
+                        {job.summary}
+                      </p>
+
+                      <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-3">
+                        {job.details.map((detail) => (
+                          <div key={detail} className="rounded-lg border border-white/10 bg-black/20 p-4 text-sm text-white/70 leading-relaxed">
+                            {detail}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.article>
+                ))}
+              </div>
             </div>
           </div>
         </motion.div>
