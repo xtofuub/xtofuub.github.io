@@ -55,6 +55,21 @@ const languages = [
   ['Swedish', 'Conversational'],
 ];
 
+const roleFit = [
+  {
+    label: 'SOC / DFIR',
+    detail: 'Comfortable turning logs, IOCs, sandbox evidence, and user-facing context into clear next steps.',
+  },
+  {
+    label: 'CTI',
+    detail: 'Maps behavior to TTPs, writes concise analyst notes, and keeps defensive usefulness first.',
+  },
+  {
+    label: 'Reverse Engineering',
+    detail: 'Hands-on with Mach-O, PE, Frida hooks, runtime inspection, and malware token analysis.',
+  },
+];
+
 export default function AboutOverlay({ isOpen, onClose }: AboutOverlayProps) {
   return (
     <AnimatePresence>
@@ -105,8 +120,7 @@ export default function AboutOverlay({ isOpen, onClose }: AboutOverlayProps) {
                 className="rounded-lg border border-white/10 bg-white/[0.055] p-5 md:p-8"
               >
                 <p className="text-2xl md:text-4xl font-serif text-white leading-tight">
-                  I investigate suspicious software, map what it does, and build tools that make
-                  security work easier to repeat.
+                  I work best where binary analysis, threat context, and practical tooling meet.
                 </p>
                 <div className="mt-8 space-y-5 text-white/70 leading-relaxed">
                   <p>
@@ -124,12 +138,13 @@ export default function AboutOverlay({ isOpen, onClose }: AboutOverlayProps) {
                 </div>
 
                 <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-3">
-                  {['SOC / DFIR', 'CTI', 'Reverse Engineering'].map((role) => (
-                    <div key={role} className="rounded-lg border border-white/10 bg-black/20 p-4">
+                  {roleFit.map((role) => (
+                    <div key={role.label} className="rounded-lg border border-white/10 bg-black/20 p-4">
                       <div className="text-[10px] uppercase tracking-widest text-[#c4b5fd]/80 mb-2">
                         Open to
                       </div>
-                      <div className="text-white text-sm">{role}</div>
+                      <div className="text-white text-sm font-medium">{role.label}</div>
+                      <p className="mt-3 text-xs leading-relaxed text-white/60">{role.detail}</p>
                     </div>
                   ))}
                 </div>
@@ -152,6 +167,10 @@ export default function AboutOverlay({ isOpen, onClose }: AboutOverlayProps) {
                   <p className="mt-4 text-sm text-white/70 leading-relaxed">
                     ICT Vocational Qualification, Cyber Security.
                   </p>
+                  <div className="mt-5 rounded-lg border border-[#c4b5fd]/20 bg-[#c4b5fd]/10 p-3 text-xs leading-relaxed text-white/70">
+                    Public positioning: junior analyst roles where security fundamentals, investigation,
+                    and practical engineering matter.
+                  </div>
                 </section>
 
                 <section className="rounded-lg border border-white/10 bg-white/[0.045] p-5 md:p-6">

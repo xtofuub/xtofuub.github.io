@@ -24,6 +24,7 @@ const featuredProjects = [
     icon: <BarChart3 size={20} />,
     description:
       'Advanced repost analytics dashboard with a replayable history feed, thumbnails, creator stats, monthly and yearly trends, word-cloud signals, profile comparison, and deploy-ready Vercel support.',
+    proves: 'Turns messy API output into a usable investigation workspace.',
     evidence: ['Repost history first', 'Playable previews', 'Charts and comparison'],
   },
   {
@@ -34,6 +35,7 @@ const featuredProjects = [
     icon: <BarChart3 size={20} />,
     description:
       'A focused TikTok repost viewer: paste a handle, inspect the amplified videos, and move through a clean playable grid without losing context.',
+    proves: 'Shows the same product instinct in a smaller, faster viewer.',
     evidence: ['2-up video grid', 'Creator lookup', 'Fast inspection flow'],
   },
   {
@@ -44,6 +46,7 @@ const featuredProjects = [
     icon: <Smartphone size={20} />,
     description:
       'Public iOS research utilities for jailbroken-device workflows, Frida control, runtime inspection, and safe local file access through MCP-style tooling.',
+    proves: 'Connects reverse engineering practice with repeatable analyst automation.',
     evidence: ['Frida hooks', 'Jailbroken iOS', 'MCP automation'],
   },
   {
@@ -54,6 +57,7 @@ const featuredProjects = [
     icon: <ShieldCheck size={20} />,
     description:
       'Malware-analysis utility for extracting encoded tokens, identifying transform patterns, and rebuilding payload context for defensive research.',
+    proves: 'Practical malware triage, not just writeups.',
     evidence: ['Token extraction', 'Payload reconstruction', 'Research workflow'],
   },
   {
@@ -64,6 +68,7 @@ const featuredProjects = [
     icon: <ShieldCheck size={20} />,
     description:
       'Chromium extension that detects hashes on web pages and pulls VirusTotal reputation so analysts can triage suspicious indicators faster.',
+    proves: 'Brings IOC context directly into the browser workflow.',
     evidence: ['IOC triage', 'VirusTotal lookup', 'Browser workflow'],
   },
   {
@@ -74,6 +79,7 @@ const featuredProjects = [
     icon: <Wrench size={20} />,
     description:
       'Operational dashboards and employee tools built during Fitsec work: weekly metric tracking, signal detection, work-session monitoring, and executive summaries.',
+    proves: 'Security-adjacent engineering with real operational users.',
     evidence: ['RevOps signals', 'Focus tracking', 'Production UI'],
   },
 ];
@@ -118,8 +124,8 @@ const supportingProjects = [
 ];
 
 const proofPoints = [
-  ['Current focus', 'Malware analysis, CTI, reverse engineering'],
-  ['Public repos reviewed', '30+ visible projects'],
+  ['Selection rule', 'Useful, current, defensively framed'],
+  ['Strongest proof', 'NyxRepost, iOS tooling, IOC utilities'],
   ['Training signal', 'TryHackMe top 5% / 114 rooms'],
   ['Recent stack', 'Python, TypeScript, React, Frida, MCP'],
 ];
@@ -158,9 +164,9 @@ export default function ProjectsOverlay({ isOpen, onClose }: ProjectsOverlayProp
                   Public Work
                 </h2>
                 <p className="text-white/70 text-sm md:text-base leading-relaxed max-w-2xl">
-                  Selected projects from the current GitHub profile, framed around analysis,
-                  defensive research, iOS reverse engineering, and practical tools. Older demos stay
-                  out of the spotlight so the strongest evidence is easier to read.
+                  A curated read of the repositories that matter most for analyst, CTI, reverse
+                  engineering, and security-tooling roles. Each featured project says what it does
+                  and what it proves.
                 </p>
               </div>
             </motion.div>
@@ -192,7 +198,7 @@ export default function ProjectsOverlay({ isOpen, onClose }: ProjectsOverlayProp
                   whileInView={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
                   viewport={{ once: true, margin: '-80px' }}
                   transition={{ delay: index * 0.035, duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-                  className="group flex min-h-[260px] flex-col justify-between rounded-lg border border-white/10 bg-white/[0.055] p-5 md:p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#c4b5fd]/50 hover:bg-white/[0.085]"
+                  className={`group flex min-h-[260px] flex-col justify-between rounded-lg border border-white/10 bg-white/[0.055] p-5 md:p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#c4b5fd]/50 hover:bg-white/[0.085] ${index === 0 ? 'lg:col-span-2' : ''}`}
                 >
                   <div>
                     <div className="flex items-start justify-between gap-4 mb-7">
@@ -215,6 +221,10 @@ export default function ProjectsOverlay({ isOpen, onClose }: ProjectsOverlayProp
                     <p className="text-sm md:text-base text-white/70 leading-relaxed max-w-[62ch]">
                       {project.description}
                     </p>
+                    <div className="mt-5 rounded-lg border border-[#c4b5fd]/20 bg-[#c4b5fd]/10 p-4 text-sm leading-relaxed text-white/80">
+                      <span className="mr-2 text-[10px] uppercase tracking-widest text-[#c4b5fd]">Proves</span>
+                      {project.proves}
+                    </div>
                   </div>
 
                   <div className="mt-7 flex flex-wrap items-center gap-2 border-t border-white/10 pt-5">
