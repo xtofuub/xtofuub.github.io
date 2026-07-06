@@ -39,6 +39,28 @@ const featuredProjects = [
     evidence: ['2-up video grid', 'Creator lookup', 'Fast inspection flow'],
   },
   {
+    name: 'mailsploit',
+    theme: 'Email authentication audit platform',
+    language: 'Python',
+    link: 'https://github.com/xtofuub/mailsploit',
+    icon: <ShieldCheck size={20} />,
+    description:
+      'Defensive mail-security platform for controlled email-authentication testing, SPF/DKIM/DMARC review, header parsing, DNSBL checks, and domain-risk analysis.',
+    proves: 'Applies offensive awareness to authorized infrastructure validation and hardening.',
+    evidence: ['SPF / DKIM / DMARC', 'Header analysis', 'Domain risk review'],
+  },
+  {
+    name: 'Crackability',
+    theme: 'iOS app hardening assessor',
+    language: 'Python',
+    link: 'https://github.com/xtofuub/Crackability',
+    icon: <Smartphone size={20} />,
+    description:
+      'Static security-assessment engine for decrypted iOS apps. It scores piracy, patching, subscription-bypass, anti-tamper, TLS, secrets, and hardening signals, then exports clear reports.',
+    proves: 'Turns mobile reverse-engineering knowledge into a defensive scoring and reporting tool.',
+    evidence: ['IPA analysis', 'Hardening score', 'SARIF / MCP output'],
+  },
+  {
     name: 'iOS Research Tooling',
     theme: 'Frida, SSH, and dynamic analysis',
     language: 'Python / TypeScript',
@@ -48,17 +70,6 @@ const featuredProjects = [
       'Public iOS research utilities for jailbroken-device workflows, Frida control, runtime inspection, and safe local file access through MCP-style tooling.',
     proves: 'Connects reverse engineering practice with repeatable analyst automation.',
     evidence: ['Frida hooks', 'Jailbroken iOS', 'MCP automation'],
-  },
-  {
-    name: 'PysilonDecoder',
-    theme: 'Malware token analysis',
-    language: 'Python',
-    link: 'https://github.com/xtofuub/PysilonDecoder',
-    icon: <ShieldCheck size={20} />,
-    description:
-      'Malware-analysis utility for extracting encoded tokens, identifying transform patterns, and rebuilding payload context for defensive research.',
-    proves: 'Practical malware triage, not just writeups.',
-    evidence: ['Token extraction', 'Payload reconstruction', 'Research workflow'],
   },
   {
     name: 'Hashtrace',
@@ -110,10 +121,10 @@ const supportingProjects = [
     description: 'MCP server for Finnish retail and used-market price search.',
   },
   {
-    name: 'XSwitch',
-    language: 'TypeScript',
-    link: 'https://github.com/xtofuub/XSwitch',
-    description: 'Firefox to Chrome extension converter with the most public stars in the current profile.',
+    name: 'PysilonDecoder',
+    language: 'Python',
+    link: 'https://github.com/xtofuub/PysilonDecoder',
+    description: 'Malware-analysis utility for extracting encoded tokens and rebuilding payload context.',
   },
   {
     name: 'HackerOne-MCP',
@@ -125,9 +136,9 @@ const supportingProjects = [
 
 const proofPoints = [
   ['Selection rule', 'Useful, current, defensively framed'],
-  ['Strongest proof', 'NyxRepost, iOS tooling, IOC utilities'],
+  ['Strongest proof', 'NyxRepost, Repostify, mailsploit, Crackability'],
   ['Training signal', 'TryHackMe top 5% / 114 rooms'],
-  ['Recent stack', 'Python, TypeScript, React, Frida, MCP'],
+  ['Technical range', 'Repost insight, email auth, iOS hardening, IOC triage'],
 ];
 
 export default function ProjectsOverlay({ isOpen, onClose }: ProjectsOverlayProps) {
